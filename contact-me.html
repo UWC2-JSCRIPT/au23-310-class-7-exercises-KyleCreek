@@ -2,9 +2,57 @@
 <html>
   <head>
     <title>Contact Me</title>
+	<link rel="stylesheet" href="contact-me.css"/>
   </head>
 
   <body>
-    <!-- TODO -->
+	<div class="container">
+		<form id="contact-form" action="">
+		<!-- Name Field In Form -->
+		<div class="form-group">
+			<label for="name">Name</label>
+			<input
+				id="name"
+				class="form-control validate-input"
+				type="text"
+				name="name"
+			/>
+		</div>
+		<!-- Email Field in Form -->
+		<div class="form-group">
+			<label for="email">email</label>
+			<input
+				id="email"
+				class="form-control validate-input"
+				type="text"
+				name="email"
+			/>
+		</div>
+		<!-- Reason For Contacting --> 
+		<div class="form-group">
+          <label for="kind">What Is your Reason For Contacting Me?</label>
+          <select class="form-control" name="kind" id="contact-kind">
+            <option value="choose" selected="selected" disabled>
+              Choose one
+            </option>
+            <option value="job-opportunity">I'm interested in Working For you</option>
+            <option value="talk-code">I Want to Nerd Out</option>
+          </select>
+          <small class="error" aria-live="polite"></small>
+        </div>
+		<!-- Message -->
+		<div class="form-group">
+			<label for="text-area">Message Area (Optional)</label>
+			<textarea id="text-area" name="text-area" rows="10"></textarea>
+			
+		</div>
+		
+		<!-- Submit Button -->
+		<div class="form-group">
+          <input class="btn btn-primary" type="submit" value="Submit" />
+        </div>
+		</form>
+	</div>
+	<script src="contact-me.js"></script>
   </body>
 </html>
