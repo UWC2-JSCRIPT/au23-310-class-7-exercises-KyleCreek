@@ -7,8 +7,8 @@ const message = document.getElementById("text-area");
 // Selector Box Choices
 const select = document.getElementById("contact-kind");
 // Hidden / Visible Elements 
-const job = document.getElementById("job-opprotunity");
-const code = document.getElementById('talk-code');
+const job = document.getElementById("job-title");
+const code = document.getElementById('coding-language');
 
 
 
@@ -49,8 +49,21 @@ const validateMessage = (messageInput) =>{
 	}
 }
 
+const handleSelect = (selectElement) => {
+	const selectedValue = selectElement.value;
+	// Job Opportunity Case Statement
+	if (selectedValue === "job-opportunity"){
+		job.parentElement.classList.remove('hidden');
+		code.parentElement.classList.add('hidden');
+	}
+	// Talk Code Case Statement
+	else if (selectedValue == "talk-code"){
+		job.parentElement.classList.add('hidden');
+		code.parentElement.classList.remove('hidden');
+	}
+}
+
 form.addEventListener('submit', (e) =>{
-	e.preventDefault();
 	// Booleans for Verification
 	let nameBool = false;
 	let emailBool = false;
@@ -61,8 +74,11 @@ form.addEventListener('submit', (e) =>{
 	emailBool = validateEmail(email);
 	messageBool = validateMessage(message);
 
-	debugger;
+	if (nameBool == false || emailBool == false || messageBool || false){
+		e.preventDefault();
+	}
+});
 
-
-
+select.addEventListener('change', (e) =>{
+	handleSelect(select);
 });
