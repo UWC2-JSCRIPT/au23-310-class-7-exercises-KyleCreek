@@ -16,6 +16,7 @@
 				class="form-control validate-input"
 				type="text"
 				name="name"
+				required
 			/>
 		</div>
 		<!-- Email Field in Form -->
@@ -26,6 +27,7 @@
 				class="form-control validate-input"
 				type="text"
 				name="email"
+				required
 			/>
 		</div>
 		<!-- Reason For Contacting --> 
@@ -42,8 +44,14 @@
         </div>
 		<!-- Message -->
 		<div class="form-group">
-			<label for="text-area">Message Area (Optional)</label>
-			<textarea id="text-area" name="text-area" rows="10"></textarea>
+			<label for="text-area">Write Message Here! (Minimum 10 Characters)</label>
+			<br><textarea 
+			id="text-area" 
+			name="text-area" 
+			rows="10"
+			cols="50"
+			required
+			></textarea>
 			
 		</div>
 		

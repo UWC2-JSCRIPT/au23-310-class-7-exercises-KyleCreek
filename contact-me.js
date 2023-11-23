@@ -2,18 +2,67 @@
 const form = document.getElementById("contact-form");
 const name = document.getElementById("name");
 const email = document.getElementById("email");
-const select = document.getElementById("contact-kind");
+const message = document.getElementById("text-area");
 
-// Need to Make the Following Hidden Fields
-// const job = document.getElementById("job-opprotunity");
-// const talk = document.getElementById("talk-code");
+// Selector Box Choices
+const select = document.getElementById("contact-kind");
+// Hidden / Visible Elements 
+const job = document.getElementById("job-opprotunity");
+const code = document.getElementById('talk-code');
+
 
 
 // Confirm the Name Input is 3 Or More characterSet
 const nameLength = (nameInput) => {
-	if (input.value.trim().length >= 3) {
-		input.parentElement.classList.remove("invalid");
+	if (nameInput.value.trim().length >= 3) {
+		nameInput.parentElement.classList.remove("invalid");
+		return true;
 	} else{
 		nameInput.parentElement.classList.add("invalid");
+		console.log("Invalid Name");
+		return false;
 	}		
 };
+
+// Confirm the Email follows RegEx
+const validateEmail = (emailField) => {
+    const re = /\w+@\w+\.\w+/
+    if (re.test(emailField.value.trim())){
+        emailField.parentElement.classList.remove("invalid");
+        return true;
+    } else {
+        emailField.parentElement.classList.add('invalid');
+		console.log("Invalid Email");
+        return false;
+    }
+};
+
+// Confirm the Message Length
+const validateMessage = (messageInput) =>{
+	if (messageInput.value.trim().length >= 10){
+		messageInput.parentElement.classList.remove('invalid');
+		return true;
+	} else {
+		messageInput.parentElement.classList.add('invalid');
+		console.log("Invalid Message Length");
+		return false;
+	}
+}
+
+form.addEventListener('submit', (e) =>{
+	e.preventDefault();
+	// Booleans for Verification
+	let nameBool = false;
+	let emailBool = false;
+	let messageBool = false;
+
+	// Validate Input
+	nameBool = nameLength(name);
+	emailBool = validateEmail(email);
+	messageBool = validateMessage(message);
+
+	debugger;
+
+
+
+});
